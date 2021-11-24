@@ -32,6 +32,7 @@ class TestLoopDrift():
         assert is_ok is True
 
     def test_processing(selft, rnp):
+        rp = rnp.new_task(runnium_param).run(times=3).result()
         prev_time = time.time()
         rnp.new_task(simple_task).run(every=0.1, times=10).result()
         time_elapsed = time.time() - prev_time
